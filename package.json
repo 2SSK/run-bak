@@ -1,0 +1,28 @@
+{
+  "name": "run",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "bin": {
+    "run": "./dist/cli/root/index.js"
+  },
+  "scripts": {
+    "build:cli": "rm -rf dist && mkdir -p dist && cp -r cli dist/cli && cp -r common dist/common && cp -r scripts dist/scripts && chmod +x dist/cli/root/index.js",
+    "dev:cli": "node ./cli/root/index.js",
+    "link:cli": "pnpm run build:cli && pnpm link --global",
+    "unlink:cli": "pnpm unlink --global"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.12.1",
+  "dependencies": {
+    "chalk": "^5.5.0",
+    "commander": "^14.0.0",
+    "@temporalio/client": "^1.12.1",
+    "@temporalio/worker": "^1.12.1",
+    "@temporalio/workflow": "^1.12.1",
+    "dotenv": "^17.2.1"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "install": {
+    "greet": "greet.sh",
+    "node": "node.sh",
+    "pm2": "pm2.sh",
+    "docker": "docker.sh",
+    "build": "build.sh",
+    "essentials": "essentials.sh",
+    "install": "install.sh",
+    "java": "java.sh",
+    "nginx": "nginx.sh",
+    "php": "php.sh",
+    "postgres17": "postgres17.sh",
+    "python": "python.sh"
+  },
+  "remove": {
+    "nginx": "remove-nginx.sh",
+    "node": "remove-node.sh",
+    "postgres": "remove-postgres.sh"
+  },
+  "update": {},
+  "maintain": {}
+}
+
