@@ -3,7 +3,6 @@
     "node": "node.sh",
     "pm2": "pm2.sh",
     "docker": "docker.sh",
-    "build": "build.sh",
     "essentials": "essentials.sh",
     "install": "install.sh",
     "java": "java.sh",

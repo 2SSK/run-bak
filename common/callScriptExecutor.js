@@ -7,7 +7,9 @@ export async function callScriptExecutor(schema, cmdType, pkg) {
       console.error(`No ${cmdType} script found for package: ${pkg}`);
       process.exit(1);
     }
-    const output = await executeScript(cmdType, scriptFile);
+    const output = await executeScript(cmdType, scriptFile, {
+      stdio: "inherit" // Allow interactive input/output
+    });
     return output;
   } catch (error) {
     console.error(`Error executing ${cmdType} script: ${error.message}`);
