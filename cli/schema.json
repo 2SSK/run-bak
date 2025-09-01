@@ -1,6 +1,5 @@
 {
   "install": {
-    "greet": "greet.sh",
     "node": "node.sh",
     "pm2": "pm2.sh",
     "docker": "docker.sh",
@@ -19,5 +18,7 @@
     "postgres": "remove-postgres.sh"
   },
   "update": {},
-  "maintain": {}
+  "maintain": {
+    "greet": "greet.sh"
+  }
 }

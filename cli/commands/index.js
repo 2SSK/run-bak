@@ -4,6 +4,7 @@ import { listCommand } from "./list.js";
 import { removeCommand } from "./remove.js";
 import { selfUpdateCommand } from "./self-update.js";
 import { updateCommand } from "./update.js";
+import { maintainCommand } from "./maintain.js";
 
 export function mainCLI() {
   const program = new Command();
@@ -19,6 +20,7 @@ export function mainCLI() {
   program.addCommand(installCommand());
   program.addCommand(removeCommand());
   program.addCommand(updateCommand());
+  program.addCommand(maintainCommand());
 
   program.parse(process.argv);
 }

@@ -1,5 +1,6 @@
 import { Command } from "commander";
 import fs from "fs";
+import { execSync } from "child_process";
 import path from "path";
 import { fileURLToPath } from "url";
 
@@ -27,13 +28,18 @@ export function listCommand() {
         }
       }
 
-      const color = (ok) => ok ? '\x1b[32mPresent\x1b[0m' : '\x1b[31mAbsent\x1b[0m';
+      const color = ok => ok ? '\x1b[32mPresent\x1b[0m' : '\x1b[31mAbsent\x1b[0m';
       const pkgs = [];
-      for (const { section, pkg, script } of allPackages) {
+      for (const { pkg } of allPackages) {
         if (!pkgs.some(p => p.pkg === pkg)) {
-          const dir = section === "install" ? "install" : "remove";
-          const scriptPath = path.resolve(__dirname, `../../scripts/${dir}/${script}`);
-          pkgs.push({ pkg, present: fs.existsSync(scriptPath) });
+          let present = false;
+          try {
+            execSync(`which ${pkg}`, { stdio: 'ignore' });
+            present = true;
+          } catch {
+            present = false;
+          }
+          pkgs.push({ pkg, present });
         }
       }
       const maxLen = Math.max(...pkgs.map(p => p.pkg.length));
