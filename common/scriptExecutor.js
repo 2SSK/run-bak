@@ -34,7 +34,7 @@ export async function executeScript(type, script) {
     }
 
     const quotedPath = `'${scriptPath.replace(/'/g, "'\\''")}'`;
-    const command = `sudo /usr/bin/env bash ${quotedPath}`;
+    const command = `/usr/bin/env bash ${quotedPath}`;
     const child = exec(command, {
       env: {
         ...process.env,
