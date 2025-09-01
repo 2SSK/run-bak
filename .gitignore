@@ -27,6 +27,7 @@ go.work.sum
 
 # Environment files
 .env
+!.env.example
 
 # Editor/IDE settings
 .idea/

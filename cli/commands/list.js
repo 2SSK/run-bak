@@ -20,7 +20,7 @@ export function listCommand() {
       }
 
       const allPackages = [];
-      for (const section of ["install", "remove"]) {
+      for (const section of ["install"]) {
         if (schema[section]) {
           for (const pkg in schema[section]) {
             allPackages.push({ section, pkg, script: schema[section][pkg] });
